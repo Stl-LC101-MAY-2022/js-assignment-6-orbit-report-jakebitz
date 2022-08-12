@@ -1,3 +1,4 @@
+<h3>orbital code</h3>
 <table>
     <tr class="header-row">
         <th (click)="sort('name')" class="sortable">Name</th>
@@ -6,14 +7,16 @@
         <th>Orbit Type</th>
         <th>Launch Date</th>
     </tr>
-    <tr *ngFor="let satellite of satellites" [class.warning]="satellite.isSpaceDebris"> <!--class="data-row"> -->
+
+
+     <tr *ngFor="let satellite of satellites" class="data-row">
         <td>{{satellite.name}}</td>
-        <td>{{satellite.type}}</td>
+        <td [class.warning]="satellite.isSpaceDebris()"> {{satellite.type}}</td>
         <td>{{satellite.operational}}</td>
         <td>{{satellite.orbitType}}</td>
         <td>{{satellite.launchDate}}</td>
-    </tr>
-    
+    </tr> 
+   
 
       
 </table>

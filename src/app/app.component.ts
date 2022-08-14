@@ -8,6 +8,7 @@ import { Satellite } from './satellite';
 })
 export class AppComponent {
   title = 'orbit-report';
+  
 
   sourceList: Satellite[];
   displayList: Satellite[];
@@ -19,15 +20,21 @@ export class AppComponent {
 
 		window.fetch(satellitesUrl).then(function (response) {
 			response.json().then(function (data) {
+				// console.log(data.satellites)
+				// console.log(data.satellites[1].name)
 
 				let fetchedSatellites = data.satellites;
 				// loop over satellites
 				for(let i=0; i < fetchedSatellites.length; i++) {
 					// create a Satellite object 
+					// console.log(fetchedSatellites[i])
 					let satellite = new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);
-					// add the new Satellite object to sourceList 
+					// add the new Satellite object to sourceList
+					// console.log(satellite) 
 					this.sourceList.push(satellite);
 				 }
+				//  console.log(this.sourceList.slice(0))
+				//  console.log(this.sourceList.slice(0)[1])
 
 				 // make a copy of the sourceList to be shown to the user
 				 this.displayList = this.sourceList.slice(0);

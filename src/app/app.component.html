@@ -3,4 +3,4 @@
 <app-orbit-list [satellites]="displayList"></app-orbit-list>
 <div class="search-form">Search: <input #searchTerm type="text" (keyup.enter)="search(searchTerm.value);" name="searchTearm"/>
 <button (click)="search(searchTerm.value);">search</button></div>
-<app-orbit-counts [satellites]="displayCount"></app-orbit-counts>
+<app-orbit-counts [satellites]="displayList"></app-orbit-counts>
